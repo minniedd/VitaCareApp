@@ -1,0 +1,123 @@
+<app-doctor-nav-bar></app-doctor-nav-bar>
+<div class="main-page">
+  <div class="title">
+    <h1>SCHEDULED APPOINTMENTS</h1>
+    <hr>
+  </div>
+
+  <div class="search-div">
+    <input (input)="searchDate($event)" class="search-input" placeholder="Enter your search">
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full name</th>
+            <th scope="col">Examination</th>
+            <th scope="col">Doctor</th>
+            <th scope="col">Appointment Date</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of appointments">
+            <td>{{item.appointmentID}}</td>
+            <td>{{item.patient}}</td>
+            <td>{{item.examination}}</td>
+            <td>{{item.doctor}}</td>
+            <td>{{ item.appointmentDateTime }}</td>
+            <td>{{item.notes}}</td>
+            <td>
+              <button type="button" class="btn btn-outline-success" (click)="showDetails(item.appointmentID)"><i class="bi bi-card-text"></i></button>
+              <input type="file" name="file" id="file" class="inputfile" (change)="onFileSelected($event, item.appointmentID)" />
+              <label for="file">Upload a file</label>
+              <button class="btn btn-dark" (click)="onUpload(item.appointmentID)">Save a file</button>
+              <button class="btn btn-success" (click)="softDelete(item.appointmentID)"><i class="bi bi-check"></i></button>
+              <div *ngIf="fileUploaded" style="color: green;">A file has been uploaded for this appointment.</div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button
+    *ngFor="let page of totalPages"
+    (click)="changePage(page)"
+    [class.active]="page === currentPage">
+    {{ page }}
+  </button>
+</div>
+
+<div *ngIf="selectedAppointment != null" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content custom-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">{{ selectedAppointment.appointmentID }}  {{ selectedAppointment.patient }}</h5>
+        <button style="border: none; background-color: white; font-size: xx-large; color: red; font-weight: bolder" type="button" class="btn-close" aria-label="Close" (click)="closeModal()"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Appointment ID</label>
+          <input type="text" class="form-control" [value]="selectedAppointment.appointmentID" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Patient</label>
+          <input class="form-control" [value]="selectedAppointment.patient" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Birth Date</label>
+          <input class="form-control" [value]="selectedAppointment.birthDate" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Telephone Number</label>
+          <input class="form-control" [value]="selectedAppointment.telephoneNumber" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Address</label>
+          <input class="form-control" [value]="selectedAppointment.address" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Country</label>
+          <input class="form-control" [value]="selectedAppointment.country" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Allergy</label>
+          <input class="form-control" [value]="selectedAppointment.allergy" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Emergency Contact</label>
+          <input class="form-control" [value]="selectedAppointment.emergencyContact" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Doctor</label>
+          <input class="form-control" [value]="selectedAppointment.doctor" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Examination</label>
+          <input class="form-control" [value]="selectedAppointment.examination" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Appointment DateTime</label>
+          <input class="form-control" [value]="selectedAppointment.appointmentDateTime" disabled>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Appointment Notes</label>
+          <textarea class="form-control" [value]="selectedAppointment.appointmentNotes" disabled></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

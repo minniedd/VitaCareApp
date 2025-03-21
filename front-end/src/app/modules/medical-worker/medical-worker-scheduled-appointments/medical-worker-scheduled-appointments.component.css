@@ -1,0 +1,83 @@
+body{
+  margin:10px;
+}
+
+.main-page{
+  margin-left: 20%;
+}
+
+h1{
+  margin-top: 30px;
+}
+
+#zakaziTerminButton{
+  margin-left: 70%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.search-div{
+  margin-left: 70%;
+  margin-bottom: 5%;
+}
+
+.search-div input {
+  background-color:#8EACCD;
+  border: none;
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+input::placeholder{
+  color: black;
+}
+
+
+.custom-modal {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  margin: 1.75rem auto;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding-bottom: 50px;
+}
+
+.pagination button {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #8EACCD;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #f1f1f1;
+  border-color: #ccc;
+}
+
+.pagination button.active {
+  background-color: #8EACCD;
+  color: white;
+  border-color: #8EACCD;
+}
+
+.pagination button:disabled {
+  color: #ccc;
+  background-color: #f9f9f9;
+  border-color: #ddd;
+  cursor: not-allowed;
+}

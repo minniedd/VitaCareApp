@@ -1,0 +1,56 @@
+.header-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.header-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-button {
+  margin-top: 20px;
+  margin-left: 20px;
+  position: fixed;
+}
+
+.back-button button {
+  padding: 10px;
+  color: #ffff;
+  background-color: #8EACCD;
+  border: none;
+  border-radius: 15px;
+}
+
+.header-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.questions-container {
+  height: 70vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.information-container {
+  margin-left: 50px;
+  margin-right: 50px;
+}

@@ -1,0 +1,34 @@
+<div class="back-button">
+  <button (click)="goBack()">Go Back</button>
+</div>
+<div class="main-page">
+  <div class="title">
+    <h1 style="margin-bottom: 20px; padding-top: 20px">REVIEWS</h1>
+    <hr>
+    <h3 style="color: #8EACCD; cursor: pointer" routerLink="/public/doctor-reviews">Clinic Reviews</h3>
+    <h3 style="cursor: pointer" routerLink="/public/clinic-reviews">Doctor Reviews</h3>
+    <hr>
+  </div>
+
+  <div class="testimonials-box-container">
+    <div class="testimonials-box" *ngFor="let review of clientReviewPodaci">
+      <div class="box-top">
+        <div class="profile">
+          <div class="name-user">
+            <strong>{{review.patientFullName}}</strong>
+          </div>
+        </div>
+
+        <div class="reviews">
+          <h1>{{review.reviewRate}}</h1>
+        </div>
+      </div>
+
+      <div class="client-comment">
+        <p>{{review.clinicReview}}</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+

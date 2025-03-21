@@ -1,0 +1,101 @@
+<app-medical-worker-nav-bar></app-medical-worker-nav-bar>
+<div class="main-page">
+  <div class="title">
+    <h1>SCHEDULE APPOINTMENTS</h1>
+    <hr>
+  </div>
+
+  <div class="zakazi-termin-forma">
+    <form>
+      <h2>Personal Information</h2>
+      <div class="personal-div">
+        <div>
+          <label>First name: *</label>
+          <input class="form-control" type="text" name="fname" id="fname" [(ngModel)]="newAppointment.firstName" required>
+        </div>
+
+        <div>
+          <label>Last name: *</label>
+          <input class="form-control" type="text" name="lname" [(ngModel)]="newAppointment.lastName" required>
+        </div>
+
+        <div>
+          <label>Birth date: *</label>
+          <input class="form-control" type="date" name="birthdate" [(ngModel)]="newAppointment.birthDate" required>
+        </div>
+
+        <div>
+          <label>Gender: *</label>
+          <select class="form-control" name="gender" [(ngModel)]="newAppointment.genderID" required>
+            <option *ngFor="let gender of genderPodaci" [value]="gender.genderID">{{ gender.genderDescription }}</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Telephone number: *</label>
+          <input class="form-control" type="text" name="number" [(ngModel)]="newAppointment.telephoneNumber" required>
+        </div>
+
+        <div>
+          <label>Address: *</label>
+          <input class="form-control" type="text" name="address" [(ngModel)]="newAppointment.address" required>
+        </div>
+
+        <div>
+          <label>Country: *</label>
+          <input class="form-control" type="text" name="country" [(ngModel)]="newAppointment.country" required>
+        </div>
+
+        <div>
+          <label>Allergies:</label>
+          <input class="form-control" type="text" name="allergies" [(ngModel)]="newAppointment.allegries">
+        </div>
+
+        <div>
+          <label>Emergency contact:</label>
+          <input class="form-control" type="text" name="contact" [(ngModel)]="newAppointment.emergencyContact">
+        </div>
+      </div>
+
+      <div class="termin-div">
+        <h2>Appointment</h2>
+
+        <div>
+          <label>Examination: *</label>
+          <select class="form-control" name="examination" [(ngModel)]="newAppointment.examinationID" required>
+            <option *ngFor="let exam of examinationsPodaci" [value]="exam.examinationID">{{ exam.examinationName }}</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Appointment date: *</label>
+          <input class="form-control" type="date" name="appDate" [(ngModel)]="newAppointment.appointmentDate" (change)="onDateChange($event)" required>
+        </div>
+
+        <div>
+          <label>Time: *</label>
+          <select class="form-control" name="time" [(ngModel)]="newAppointment.time" required>
+            <option *ngFor="let slot of timeSlots" [value]="slot.timeRange" [disabled]="!slot.isAvailable">
+              {{ slot.timeRange }} - {{ slot.isAvailable ? 'Available' : 'Not Available' }}
+            </option>
+          </select>
+        </div>
+
+
+        <div>
+          <label>Doctors: *</label>
+          <select class="form-control" name="examination" [(ngModel)]="newAppointment.doctorID" required>
+            <option *ngFor="let doc of doctorsPodaci" [value]="doc.doctorID">{{ doc.firstName }} {{ doc.lastName }}</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Notes:</label>
+          <textarea class="form-control" name="notes" [(ngModel)]="newAppointment.notes"></textarea>
+        </div>
+
+        <button class="btn btn-success" type="button" (click)="submitAppointment()">Submit Appointment</button>
+      </div>
+    </form>
+  </div>
+</div>

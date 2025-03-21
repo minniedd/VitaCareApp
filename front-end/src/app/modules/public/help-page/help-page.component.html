@@ -1,0 +1,64 @@
+<div class="back-button">
+  <button (click)="goBack()">Go Back</button>
+</div>
+
+<div class="header-1">
+  <h2 style="width: 100%; text-align:center; margin-top: 10px; color: #8EACCD">Contact us:</h2>
+</div>
+<div class="form-box">
+<form action="javascript:void(0)" [formGroup]="form" (submit)="send()">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Full Name</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="from_name">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com" formControlName="from_email">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Subject</label>
+    <input type="email" class="form-control" id="exampleFormControlInput3" formControlName="subject">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" formControlName="message"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-dark">Send</button>
+
+</form>
+</div>
+<br>
+<div class="information-container">
+  <h2 style="color: #8EACCD">Our Information</h2>
+  <p><i style="color: #8EACCD" class="bi bi-telephone-fill"></i> Tel: +387 33 XXX XXX</p>
+  <p><i style="color: #8EACCD" class="bi bi-envelope-fill"></i> info@vitacare.com</p>
+  <p><i style="color: #8EACCD" class="bi bi-geo-alt-fill"></i> Kranjčevićeva 12, Sarajevo 71000</p>
+</div>
+
+<hr>
+<div class="header-2">
+<h2  style="color: #8EACCD">Our Location:</h2>
+</div>
+<div class="map-container">
+  <google-map [center]="center" [zoom]="zoom" [options]="mapOptions">
+    <map-marker *ngFor="let marker of markers" [position]="marker"></map-marker>
+  </google-map>
+</div>
+
+<hr>
+<div class="header-3">
+  <h2 style="color: #8EACCD">FAQs (Frequently Asked Questions)</h2>
+</div>
+<div class="questions-container">
+<h3 style="color: #8EACCD">Kada ću biti spreman za otpust?</h3>
+<p>Svako napreduje svojim tempom. Možete početi razmišljati o povratku kući kada vidite da je Vaša aktivnost u porastu, a rana dobro zarasta. Uobičajena dužina boravka u bolnici je četiri do jedanaest dana u zavisnosti od bolesti i vrste operacije.</p>
+<h3 style="color: #8EACCD">Što bih trebao paziti kod kuće?</h3>
+<p>Provjerite temperaturu ujutro i navečer i zabilježite. Obavijestite ambulantnog koordinatora ili medicinske sestre ako temperatura od 38 ° C ili više ostane duže od dva dana ili ako imate temperaturu od 38.5 ° C u bilo kojem trenutku.Ako razvijete otežano disanje, novu bol u grudima ili lupanje srca (brže otkucaje), nazovite hitnu pomoć.</p>
+<h3 style="color: #8EACCD">Šta mogu jesti?</h3>
+<p>Vaš liječnik može preporučiti dijetu sa niskim unosom natrija (Na). Zbog toga nećete moći dodati sol u Vaše obroke. Dobit ćete srčani meni kako biste svakodnevno odabrali obroke. Možete naručiti i međuobrok.Prehrambene izmjene ili prilagodbe u Vašoj prehrani mogu uključivati ​​ograničenja u kalorijama, natriju, mastima ili holesterolu.Razumijevanje važnosti konzumiranja namirnica zdravih za srce i izbjegavanještetne hrane, ključno je u sprječavanju daljnje bolesti srca. Ako želite razgovarati s dijetetičarom, pitajte medicinsku sestru. Nakon operacije u trajanju od 2 mjeseca ponovo se naglašava ishrana bogata bjelančevinama i kalcijem zbog dobrog osnova zarastanja rana i grudne kosti. Preporučuje se zrelo meso, bravetina, govedina, junetina, kuhano, ili sa roštilja i riba. Izbjegavati bijela mesa koja su bogata holesterolom; piletina, teletina, puretina, prasetina.Također uzimati mliječne proizvode, najbolje obrano mlijeko (mlaćenica ili nemasni jogurt, te nemasne sireve). Redovno kontrolisati tjelesnu težinu i održavati je na nivou preoperativne uz mogućnost gubitka nekoliko kilograma.</p>
+</div>
+

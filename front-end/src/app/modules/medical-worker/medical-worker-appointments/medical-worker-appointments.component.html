@@ -1,0 +1,40 @@
+<app-medical-worker-nav-bar></app-medical-worker-nav-bar>
+<div class="main-page">
+  <div class="title">
+    <h1>APPOINTMENTS</h1>
+    <hr>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Examination</th>
+            <th>Doctor</th>
+            <th>Appointment Time</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of appointments">
+            <td>{{ item.appointmentID }}</td>
+            <td>{{ item.patient }}</td>
+            <td>{{ item.examination }}</td>
+            <td>{{ item.doctor }}</td>
+            <td>{{ item.appointmentDateTime }}</td>
+            <td>{{ item.notes }}</td>
+            <button type="button" class="btn btn-outline-success" (click)="approveAppointment(item)"><i class="bi bi-check-circle"></i></button>
+            <button type="button" class="btn btn-outline-danger" (click)="rejectAppointment(item)"><i class="bi bi-x-circle-fill"></i></button>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

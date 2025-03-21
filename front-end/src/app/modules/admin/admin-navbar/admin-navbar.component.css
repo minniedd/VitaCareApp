@@ -1,0 +1,29 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 318px; /* Širina sidebar-a */
+  overflow-y: auto;
+  padding-top: 20px;
+  background-color: #E6E6FA;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul li a:hover {
+  opacity: 0.7;
+}
+
+.main-content {
+  margin-left: 250px; /* Mora biti iste širine kao sidebar */
+  padding: 20px;
+}
+
+.navbar {
+  padding-left: 250px;
+  background-color: #800080;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
