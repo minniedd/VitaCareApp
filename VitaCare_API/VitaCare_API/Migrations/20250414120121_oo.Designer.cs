@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitaCare_API.Data;
 
@@ -11,9 +12,11 @@ using VitaCare_API.Data;
 namespace VitaCare_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250414120121_oo")]
+    partial class oo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -349,13 +352,13 @@ namespace VitaCare_API.Migrations
                         new
                         {
                             RoleID = 1,
-                            CreatedDate = new DateTime(2025, 4, 14, 12, 5, 3, 264, DateTimeKind.Utc).AddTicks(8369),
+                            CreatedDate = new DateTime(2025, 4, 14, 12, 1, 21, 123, DateTimeKind.Utc).AddTicks(2105),
                             RoleName = "Doctor"
                         },
                         new
                         {
                             RoleID = 2,
-                            CreatedDate = new DateTime(2025, 4, 14, 12, 5, 3, 264, DateTimeKind.Utc).AddTicks(8371),
+                            CreatedDate = new DateTime(2025, 4, 14, 12, 1, 21, 123, DateTimeKind.Utc).AddTicks(2109),
                             RoleName = "MedWorker"
                         });
                 });
@@ -369,14 +372,6 @@ namespace VitaCare_API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
